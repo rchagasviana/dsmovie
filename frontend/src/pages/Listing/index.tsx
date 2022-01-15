@@ -1,8 +1,9 @@
+import Pagination from "pages/pagination";
 
 
 function Listing(){
     return(
-        <h1>Página de listagem</h1>
+        <Pagination/>
     );
 }
 
