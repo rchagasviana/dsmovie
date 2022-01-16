@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @EqualsAndHashCode
 @NoArgsConstructor
@@ -11,9 +13,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "tb_movie")
 public class Movie implements Serializable {
-	private static final long serialVersionUID = 326577449391477440L;
+    private static final long serialVersionUID = 326577449391477440L;
 
-	@Getter
+    @Getter
     @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,4 +36,13 @@ public class Movie implements Serializable {
     @Getter
     @Setter
     private String image;
+
+
+    @OneToMany(mappedBy = "id.movie")
+    @Getter
+    private Set<Score> scores = new HashSet<>();
+
+
+
+
 }
